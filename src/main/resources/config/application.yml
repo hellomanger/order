@@ -1,0 +1,34 @@
+# 应用管理系统地址配置(http://localhost:8081/)
+server:
+  # http 访问的端口
+  port: 8086
+  # context-path: /qfqzapi
+  tomcat:
+    uri-encoding: utf-8
+
+logging:
+  file: logs/order.log 
+
+spring:
+  thymeleaf:
+    mode: LEGACYHTML5
+    cache: false
+    classpath: /templates/
+    suffix: .html
+    
+  jackson:
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+   
+  
+  # 启动的运行环境 dev开发环境;pro生产环境  
+  profiles: 
+    active: dev
+    
+  http:
+    multipart:
+      max-file-size: 30Mb
+      max-request-size: 30Mb
+ # devtools:
+   # restart:
+     # enabled: true    
