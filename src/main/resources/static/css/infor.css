@@ -1,0 +1,193 @@
+.contentTable{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    bottom: 50px;
+    right: 20px;
+}
+.contInfor{
+    height: 50px;
+    width: 100%;
+    background: #FFF;
+}
+.contInfor select:first-child{
+    margin-left: 20px;
+    height: 30px;
+    width: 185px;
+    margin-top: 10px;
+    border: 1px solid #c6c6ca;
+    border-radius: 2px;
+    padding-left: 5px;
+}
+/* .contInfor select:first-child option{
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+} */
+.searchInfo{
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    width: 252px;
+}
+.searchInfo input{
+    padding: 0 25px 0 5px;
+    width: 180px;
+    height: 30px;
+    border: 1px solid #c6c6ca;
+    border-radius: 2px;
+    margin-right: 10px;
+    background: url("../img/search.png") no-repeat 159px 7px;
+    box-sizing: border-box;
+}
+.searchInfo button{
+    padding: 0 15px;
+    height: 30px;
+    background: #3e86fa;
+    color: #FFF;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 2px;
+    font-size: 14px;
+    outline: none;
+    border: none;
+}
+.conTable{
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 63px;
+    background: #FFF;
+}
+.conFooter{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+    height: 60px;
+    background: #FFF;
+}
+.conTable table{
+    width: 100%;
+}
+.conTable table thead{
+    width: 100%;
+}
+.conTable table thead tr{
+    height: 50px;
+    border-bottom: 1px dashed #ccc;
+}
+.conTable table thead tr td{
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+.conTable table tbody tr{
+    height: 35px;
+}
+.conTable table tbody tr td{
+    line-height: 35px;
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+.conTable table tbody tr:nth-child(odd){
+    background: #eff3f9;
+}
+.conTable table tbody tr:nth-child(even){
+    background: #FFF;
+}
+.conTable table tbody tr.active{
+    border: 1px solid #9fc4ff;
+    border-left: 4px solid #3e86fa;
+}
+.shadow{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    display: none;
+    background: rgba(0,0,0,0.5);
+}
+.shadow>div{
+    width: 475px;
+    height: 265px;
+    position: absolute;
+    background: #FFF;
+    top: 50%;
+    left: 50%;
+    margin-top: -132px;
+    margin-left: -237px;
+    border-radius: 4px;
+}
+.shadow>div .title{
+    height: 50px;
+    width: 100%;
+    font-size: 16px;
+    color: #3e86fa;
+    line-height: 50px;
+    border-bottom: 2px solid #e2e7eb;
+    font-weight: bold;
+    margin: 0;
+}
+.shadow>div .title span{
+    display: inline-block;
+    height: 4px;
+    width: 4px;
+    background: #3e86fa;
+    border-radius: 50%;
+    margin: 0 12px 0 28px; 
+    position: relative;
+    top: -3px;
+}
+.shadow>div p{
+    margin: 15px 0 0 35px;
+}
+.shadow>div p span{
+    display: inline-block;
+    height: 30px;
+    width: 60px;
+    text-align: right;
+    line-height: 30px;
+    color: #3e86fa;
+    font-weight: bold;
+    margin-right: 20px;
+}
+.shadow>div select{
+    height: 30px;
+    width: 295px;
+    border: 1px solid #c6c6ca;
+    padding-left: 5px;
+}
+.buttonBar{
+    position: relative;
+    top: 68px;
+    left: 300px;
+}
+.buttonBar .exitBtn{
+    height: 30px; 
+    width: 65px;
+    border: 1px solid #3e86fa;
+    color: #3e86fa;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 3px;
+    background: #FFF;
+    box-sizing: border-box;
+}
+.buttonBar .searchBtn{
+    height: 30px; 
+    width: 65px;
+    color: #FFF;
+    font-size: 14px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 3px;
+    background: #3e86fa;
+    border: none;
+    box-sizing: border-box;
+}

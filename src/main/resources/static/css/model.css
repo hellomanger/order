@@ -1,0 +1,191 @@
+html,body{
+    height: 100%;
+    width: 100%;
+}
+.container{
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+/* 侧边栏导航 */
+.nav{
+    width: 190px;
+    height: 100%;
+    background: #3b3a3f;
+    transition: all .3s;
+}
+.nav a{
+    display: block;
+    overflow: hidden;
+    padding-left: 20px;
+    line-height: 50px;
+    height: 50px;
+    color: #FFF;
+    transition: all .3s;
+}
+.nav a span{
+    margin-left: 30px;
+    font-size: 14px;
+}
+.nav-item{
+    position: relative;
+}
+.nav-item.nav-show{
+    border-bottom: none;
+}
+.nav-item ul{
+    display: none;
+    background: rgba(0,0,0,.1);
+}
+.nav-item.nav-show ul{
+    display: block;
+}
+.nav .nav-icon{
+    font-size: 20px;
+    position: absolute;
+    margin-left:-1px;
+}
+/* 此处修改导航图标 可自定义iconfont 替换*/
+.icon_1::after{
+    content: "\e62b";
+}
+.icon_2::after{
+    content: "\e669";
+}
+.icon_3::after{
+    content: "\e61d";
+}
+/*---------------------*/
+.nav-more{
+    float:right;
+    margin-right: 20px;
+    font-size: 12px;
+    transition: transform .3s;
+}
+/* 此处为导航右侧箭头 如果自定义iconfont 也需要替换*/
+.nav-more::after{
+    content: "\e621";
+}
+/*---------------------*/
+.nav-show .nav-more{
+    transform:rotate(90deg);
+}
+.nav-show,.nav-item>a:hover{
+    color: #FFF;
+    background: #353439;
+}
+.nav-show>a:before,.nav-item>a:hover:before{
+    opacity:1;
+}
+.nav-item li:hover a{
+    color: #FFF;
+    background: rgba(0, 0, 0,.1);
+}
+
+/* nav-mini */
+.nav-mini.nav{
+    width: 60px;
+}
+.nav>ul ul li.show{
+    border-right: 4px solid #3e86fa;
+}
+.nav-mini.nav .nav-item>a span{
+    display: none;
+}
+.nav-mini.nav .nav-more{
+    margin-right: -20px;
+}
+.nav-mini.nav .nav-item ul{
+    position: absolute;
+    top:0px;
+    left:60px;
+    width: 180px;
+    z-index: 99;
+    background:#3C474C;
+    overflow: hidden;
+}
+.nav-mini.nav .nav-item:hover{
+    background:rgba(255,255,255,.1);
+}
+.nav-mini.nav .nav-item:hover .nav-item a{
+    color:#FFF;
+}
+.nav-mini.nav .nav-item:hover a:before{
+    opacity:1;
+}
+.nav-mini.nav .nav-item:hover ul{
+    display: block;
+}
+.nav .title{
+    height: 70px;
+    width: 100%;
+    text-align: center;
+    line-height: 70px;
+    font-size: 24px;
+    color: #3e86fa;
+    font-weight: bold;
+}
+.nav>ul li:nth-child(2) .nav-more::after, .nav>ul li:nth-child(3) .nav-more::after, .nav>ul li:nth-child(5) .nav-more::after{
+    content: '';
+}
+/* 头部 */
+.header{
+    position: absolute;
+    left: 190px;
+    top: 0;
+    right: 0;
+    height: 70px;
+    border-bottom: 1px solid #d1d1d4;
+}
+.userMsg{
+    width: 135px;
+    height: 100%;
+    text-align: center;
+    line-height: 70px;
+    margin-right: 50px;
+}
+.userMsg img{
+    position: relative;
+    top: 10px;
+}
+.header>ul{
+    height: 100%;
+    margin-right: 10px;
+}
+.header>ul li{
+    height: 100%;
+    float: left;
+    margin-right: 25px;
+    line-height: 70px;
+}
+.header>ul li a{
+    display: inline-block;
+    width: 16px;
+    height: 18px;
+}
+.userMsg span{
+    color: #8e9aa9;
+    font-size: 14px;
+    margin-left: 15px;
+}
+.header>button{
+    height: 100%;
+    width: 235PX;
+    background: #3e86fa;
+    border: none;
+    outline: none;
+    line-height: 70px;
+    text-align: center;
+    font-size: 16px;
+    color: #FFF;
+    font-weight: bold;
+}
+/* 内容 */
+.content{
+    position: absolute;
+    left: 190px;
+    top: 70px;
+    right: 0;
+    bottom: 0;
+    background: #f5f6f9;
+}
