@@ -1,5 +1,6 @@
 .contentTable{
     position: absolute;
+    overflow:auto;
     top: 20px;
     left: 20px;
     bottom: 50px;
@@ -28,16 +29,16 @@
     position: absolute;
     right: 20px;
     top: 10px;
-    width: 252px;
+    /**width: 252px;*/
 }
 .searchInfo input{
     padding: 0 25px 0 5px;
-    width: 180px;
+    width: 120px;
     height: 30px;
     border: 1px solid #c6c6ca;
     border-radius: 2px;
     margin-right: 10px;
-    background: url("../img/search.png") no-repeat 159px 7px;
+    /**background: url("../img/search.png") no-repeat 159px 7px;*/
     box-sizing: border-box;
 }
 .searchInfo button{
@@ -91,7 +92,13 @@
     font-size: 14px;
     text-align: center;
     color: #666;
+    border:1px solid #c6c6ca;
 }
+.conTable table tbody tr td.select{
+	background:#eef3b2;
+}
+
+
 .conTable table tbody tr:nth-child(odd){
     background: #eff3f9;
 }

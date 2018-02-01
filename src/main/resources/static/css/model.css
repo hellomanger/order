@@ -182,7 +182,7 @@ html,body{
 }
 /* 内容 */
 .content{
-    position: absolute;
+    /**position: absolute;*/
     left: 190px;
     top: 70px;
     right: 0;

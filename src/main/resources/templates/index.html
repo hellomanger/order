@@ -9,21 +9,23 @@
     <link href="/css/infor.css" th:href="@{/css/infor.css}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css">
 </head>
-<body>
+<body style="background:#f5f6f9;">
 <div class="content">
    <div class="contentTable">
    		<div class="contInfor">
-            <select name="" id="">
-                <option value="0" style="display: none; color: #c6c6ca;">选择社区 /  网格</option>
-                <option value="1">111</option>
-                <option value="1">222</option>
-                <option value="1">333</option>
-                <option value="1">444</option>
-                <option value="1">555</option>
-            </select>
+            
             <div class="searchInfo">
-                <input type="text" placeholder="输入项目名称进行搜索">
+                <input type="text" id="t1" placeholder="">
+                <input type="text" id="t2" placeholder="">
+                <input type="text" id="t3" placeholder="">
+                <input type="text" id="t4" placeholder="">
+                <input type="text" id="t5" placeholder="">
+                <input type="text" id="t6" placeholder="">
+                <input type="text" id="t7" placeholder="">
+                <input type="text" id="t8" placeholder="">
                 <button id = "hello">搜索</button>
+                <button id = "add">add</button>
+                <button id = "del">del</button>
             </div>
         </div>
         <div class="conTable">
@@ -39,8 +41,22 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- <tr>
+                        <td rowspan="3">1</td>
+                        <td>李子</td>
+                        <td>男</td>
+                        <td>18</td>
+                        <td>111111111111</td>
+                        <td>党员，物业员</td>
+                    </tr>
                     <tr>
-                        <td>1</td>
+                        <td>李子</td>
+                        <td>男</td>
+                        <td>18</td>
+                        <td>111111111111</td>
+                        <td>党员，物业员</td>
+                    </tr>
+                    <tr>
                         <td>李子</td>
                         <td>男</td>
                         <td>18</td>
@@ -54,23 +70,7 @@
                         <td>18</td>
                         <td>111111111111</td>
                         <td>党员，物业员</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>李子</td>
-                        <td>男</td>
-                        <td>18</td>
-                        <td>111111111111</td>
-                        <td>党员，物业员</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>李子</td>
-                        <td>男</td>
-                        <td>18</td>
-                        <td>111111111111</td>
-                        <td>党员，物业员</td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -80,21 +80,84 @@
 </html>
 <script src="/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
 <script src="/js/jquery.table2excel.js" th:src="@{/js/jquery.table2excel.js}"></script>
-<script src="/js/nav.js" th:src="@{/js/nav.js}"></script>
 <script>
+	function createTr(){
+		var trHTML = "<tr>";
+		if($("#t6").val() != 4){
+			trHTML+="<td onclick='tdselect(this)'>"+$("#t1").val()+"</td>";
+		}
+		trHTML+="<td>"+$("#t2").val()+"</td>"+
+        "<td>"+$("#t3").val()+"</td>"+
+        "<td>"+$("#t4").val()+"</td>"+
+        "<td>"+$("#t5").val()+"</td>"+
+        "<td>"+$("#t6").val()+"</td>"+
+    	"</tr>";
+    	return trHTML;
+	}
+	function tdselect(that){
+        $(that).parent().parent().find("td").siblings().removeClass('select');
+        $(that).addClass('select');
+	}
+	function getRowIndex(){
+		return $("#table2excel").find('.select').parent().index();
+	}
+	function addTr(row){
+		var trHtml = createTr();
+		var row = getRowIndex();
+		var tr=$("#table2excel tr").eq(row+1);
+		if(tr==0){
+		   alert("指定的table id或行数不存在！");
+		   return;
+		}
+		tr.after(trHtml);
+		var rowspan = $("#table2excel tr").eq(row+1).children("td").eq(0).attr("rowspan");
+		alert(rowspan+"  qian");
+		if("undefined" == typeof(rowspan)){
+			rowspan = 2;
+		}else{
+			rowspan++;
+		}
+		$("#table2excel tr").eq(row+1).children("td").eq(0).attr("rowspan",rowspan);
+		var rowspan2 = $("#table2excel tr").eq(row+1).children("td").eq(0).attr("rowspan");
+		alert(rowspan2+"  hou");
+	}
+	   
+	function delTr(){
+	   //获取选中的复选框，然后循环遍历删除
+	   var row = getRowIndex();
+	   if(row==-1){
+	      alert("要删除指定行，需选中要删除的行！");
+	      return;
+	   }
+	   var tr=$("#table2excel tr").eq(row+1);
+	   tr.remove();
+	}
+	  
 	$(function() {
 		$("#hello").click(function(){
 			$("#table2excel").table2excel({
 				exclude: ".noExl",
 				name: "Excel Document Name",
-				filename: "myFileName" + new Date().toISOString().replace(/[\-\:\.]/g, ""),
+				filename: "order" + new Date().toISOString().replace(/[\-\:\.]/g, ""),
 				fileext: ".xlsx",
 				exclude_img: true,
 				exclude_links: true,
 				exclude_inputs: true
 			});
 		});
-		
+		$("#add").click(function(){
+			var row = getRowIndex();
+			console.log(row);
+			if(row == -1){
+				$("#table2excel").append(createTr());
+			}else{
+				addTr(row);
+			}
+			
+		});
+		$("#del").click(function(){
+			delTr();
+		});
 	});
 	
 </script>
