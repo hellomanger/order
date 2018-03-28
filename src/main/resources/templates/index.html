@@ -20,7 +20,7 @@
                 <input type="text" id="t3" placeholder="">
                 <input type="text" id="t4" placeholder="">
                 <input type="text" id="t5" placeholder="">
-                <input type="text" id="t6" placeholder="">
+                <input type="text" id="t6" placeholder="2">
                 <input type="text" id="t7" placeholder="">
                 <input type="text" id="t8" placeholder="">
                 <button id = "hello">搜索</button>
@@ -41,36 +41,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- <tr>
-                        <td rowspan="3">1</td>
-                        <td>李子</td>
-                        <td>男</td>
-                        <td>18</td>
-                        <td>111111111111</td>
-                        <td>党员，物业员</td>
-                    </tr>
-                    <tr>
-                        <td>李子</td>
-                        <td>男</td>
-                        <td>18</td>
-                        <td>111111111111</td>
-                        <td>党员，物业员</td>
-                    </tr>
-                    <tr>
-                        <td>李子</td>
-                        <td>男</td>
-                        <td>18</td>
-                        <td>111111111111</td>
-                        <td>党员，物业员</td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>李子</td>
-                        <td>男</td>
-                        <td>18</td>
-                        <td>111111111111</td>
-                        <td>党员，物业员</td>
-                    </tr> -->
                 </tbody>
             </table>
         </div>
@@ -82,21 +52,28 @@
 <script src="/js/jquery.table2excel.js" th:src="@{/js/jquery.table2excel.js}"></script>
 <script>
 	function createTr(){
+		
 		var trHTML = "<tr>";
+		trHTML+="<td onclick='tdselect(this)'>"+$("#t1").val()+"</td>";
 		if($("#t6").val() != 4){
-			trHTML+="<td onclick='tdselect(this)'>"+$("#t1").val()+"</td>";
+			trHTML+="<td>"+$("#t2").val()+"</td>";
+			trHTML+="<td>"+$("#t3").val()+"</td>";
 		}
-		trHTML+="<td>"+$("#t2").val()+"</td>"+
-        "<td>"+$("#t3").val()+"</td>"+
-        "<td>"+$("#t4").val()+"</td>"+
-        "<td>"+$("#t5").val()+"</td>"+
-        "<td>"+$("#t6").val()+"</td>"+
+		trHTML+="<td>"+$("#t4").val()+"</td>";
+		trHTML+="<td>"+$("#t5").val()+"</td>";
+		trHTML+="<td>"+$("#t6").val()+"</td>";
     	"</tr>";
+		
     	return trHTML;
 	}
 	function tdselect(that){
-        $(that).parent().parent().find("td").siblings().removeClass('select');
-        $(that).addClass('select');
+		if($(that).attr("class") == "select"){
+			$(that).removeClass('select');
+		}else{
+			$(that).parent().parent().find("td").siblings().removeClass('select');
+	        $(that).addClass('select');
+		}
+        
 	}
 	function getRowIndex(){
 		return $("#table2excel").find('.select').parent().index();
@@ -110,16 +87,18 @@
 		   return;
 		}
 		tr.after(trHtml);
+		if($("#t6").val() != 4){
+			return;
+		}
 		var rowspan = $("#table2excel tr").eq(row+1).children("td").eq(0).attr("rowspan");
-		alert(rowspan+"  qian");
 		if("undefined" == typeof(rowspan)){
 			rowspan = 2;
 		}else{
 			rowspan++;
 		}
 		$("#table2excel tr").eq(row+1).children("td").eq(0).attr("rowspan",rowspan);
+		$("#table2excel tr").eq(row+1).children("td").eq(3).attr("rowspan",rowspan);
 		var rowspan2 = $("#table2excel tr").eq(row+1).children("td").eq(0).attr("rowspan");
-		alert(rowspan2+"  hou");
 	}
 	   
 	function delTr(){
